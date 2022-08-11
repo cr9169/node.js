@@ -1,7 +1,6 @@
 const fsEx = require("fs-extra");
 const { promises } = require("fs");
 const fs = require("fs");
-const { start } = require("prompt");
 
 const srcdirectory = "./files_to_move";
 const desdirectory = "./moved_files";

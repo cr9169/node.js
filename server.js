@@ -1,4 +1,6 @@
 const http = require("http");
+const { promises } = require('fs');
+const fs = require('fs-extra');
 const HOSTNAME = process.env.HOSTNAME || "localhost";
 const PORT = process.env.PORT || 3000;
 
@@ -9,18 +11,30 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(PORT, HOSTNAME, () => {
-    console.log(`Server running at http://${HOSTNAME}:${PORT}/`)
+    console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
+    
+    if(isEmptyDir("/files_to_move"))
+        fs.unlink('file.txt', (err) => {
+            if (err) {
+                throw err;
+            }
+        
+            console.log("File is deleted.");
+        });
 });
 
-/*const fs = require('fs');
 
-fs.readFile('hi.txt', 'utf8', (err, data) => {
-    if(err)
-    {
-        console.error(err);
-        return;
+
+
+
+function isEmptyDir(path) {  
+    try {
+      const directory = await promises.opendir(path);
+      const entry = await directory.read();
+      await directory.close();
+
+      return entry === null;
+    } catch (error) {
+      return false
     }
-    console.log(data);
-});
-
-console.log('hi');*/
+}

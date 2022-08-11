@@ -1,16 +1,3 @@
-/*const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-let numberOfFiles, numberOfWords;
-  
-readline.question('Enter number of files', function (numberOfFiles) {
-    readline.question('Enter number of words in every file', function (numberOfWords) {
-      
-      readline.close();
-    });
-});*/
 const promises = require('fs'); 
 const prompt = require('prompt');
 

@@ -31,7 +31,7 @@ const cleanDirectory = async () => {
                                 else {
                                   console.log(`success!!!`);
                                 }
-                              });
+                            });
                         }
                     });
                 }) 

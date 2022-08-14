@@ -1,5 +1,4 @@
 import prompt from "prompt";
-const promises = require('fs'); 
 
 import {handleTextualUIStartMenu, actByInput} from './textual_ui_uiHandling.js';
 import {deleteFileByName, createFileByName, writeToFile, deleteFolderByName,
@@ -7,10 +6,10 @@ import {deleteFileByName, createFileByName, writeToFile, deleteFolderByName,
 
 handleUI();
 
-async function handleUI() {
+function handleUI() {
   let functionName;
   let functionIndex;
-
+  
   { // TODO: make can repeat itself 
     handleTextualUIStartMenu();
     prompt.start();
@@ -19,7 +18,7 @@ async function handleUI() {
         console.error(err);
         } 
         else {
-        functionIndex = Number(mainResult.Index);
+        functionIndex = Number(mainResult.Index); // this performed first, and than going to the ifs
         console.log(functionIndex);
 
         if (functionIndex == 3 || functionIndex == 8) {
@@ -48,6 +47,7 @@ async function handleUI() {
             else {
                 console.log(seconderyResult.functionObject.toString());
                 eval(functionName)(seconderyResult.functionObject.toString());
+                handleUI();
             }
             });
         } 

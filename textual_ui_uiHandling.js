@@ -12,45 +12,54 @@ function handleTextualUIStartMenu() {
     );
 }
 
-function actByInput(functionIndex) {
-    if (functionIndex == 1) {
-      console.log("enter file name to delete");
-      return "deleteFileByName";
-    }
-    if (functionIndex == 2) {
-      console.log("enter file name to create");
-      return "createFileByName";
-    }
-    if (functionIndex == 3) {
+function actByInputTwoInputs(functionIndex) {
+
+  switch (functionIndex) {
+    case 3: {
       console.log(
         "enter the file name, press enter, and than enter \
   the content to write"
       );
-      return "writeToFile";
+      break;
     }
-    if (functionIndex == 4) {
-      console.log("enter folder name to create");
-      return "createFolderByName";
-    }
-    if (functionIndex == 5) {
-      console.log("enter folder name to delete");
-      return "deleteFolderByName";
-    }
-    if (functionIndex == 6) {
-      console.log("enter file path to create in a folder");
-      return "createFileByNameFromFolder";
-    }
-    if (functionIndex == 7) {
-      console.log("enter file path to delete from folder");
-      return "deleteFileByNameFromFolder";
-    }
-    if (functionIndex == 8) {
+    case 8: {
       console.log(
         "enter the file name to merge to, press enter, \
   and than enter the file name to merge"
       );
-      return "mergeFiles";
+      break;
     }
+
+  }
+}
+
+function actByInputOneInput(functionIndex) {
+  switch (functionIndex) {
+    case 1: {
+      console.log("enter file name to delete");
+      break;
+    }
+    case 2: {
+      console.log("enter file name to create");
+      break;
+    }
+    case 4: {
+      console.log("enter folder name to create");
+      break;
+    }
+    case 5: {
+      console.log("enter folder name to delete");
+      break;
+    }
+    case 6: {
+      console.log("enter file path to create in a folder");
+      break;
+    }
+    case 7: {
+      console.log("enter file path to delete from folder");
+      break;
+    }
+  }
 }
   
-export {handleTextualUIStartMenu, actByInput};
+export {handleTextualUIStartMenu, actByInputOneInput, actByInputTwoInputs};

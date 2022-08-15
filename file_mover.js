@@ -1,6 +1,6 @@
-const fsEx = require("fs-extra");
-const { promises } = require("fs");
-const fs = require("fs");
+import fsEx from "fs-extra";
+import promises from "fs/promises";
+import fs from "fs";
 
 const srcdirectory = "./files_to_move";
 const desdirectory = "./moved_files";
@@ -52,10 +52,14 @@ fs.watch(srcdirectory, (event, name) => {
 });
 
 async function isEmptyDir(path) {
-  const entry = await promises.readdir(path);
+  const entry = await promises.readdir(path).then(() =>
+  console.log(
+    `${numberOfWords * i} words successfuly written in file_${i}`
+  )
+)
+.catch((err) => {
+  console.log(err);
+});;
 
-  if (entry === null) return true;
-  else return false;
+  return entry === null;
 }
-
-//cleanDirectory();

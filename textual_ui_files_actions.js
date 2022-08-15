@@ -77,4 +77,4 @@ function mergeFiles(file1, file2) {
     });
 }
 
-export { deleteFileByName, createFileByName, writeToFile, deleteFolderByName, createFolderByName, deleteFileByNameFromFolder, createFileByNameFromFolder, mergeFiles};
+export { deleteFileByName, createFileByName, writeToFile, deleteFolderByName, createFolderByName, deleteFileByNameFromFolder, createFileByNameFromFolder, mergeFiles };
